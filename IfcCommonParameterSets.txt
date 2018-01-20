@@ -25,34 +25,34 @@ PropertySet:	Pset_BuildingCommon	I	IfcBuilding
 	GrossPlannedArea	Area
 	YearOfConstruction	Label
 	IsLandmarked	Boolean
-	NumberOfStoreys	Integer
+	NumberOfStoreys	Integer	PropertyCalculator.NumberOfStoreysCalculator
 PropertySet:	Pset_SiteCommon	I	IfcSite
 	BuildableArea	Area
 	BuildingHeightLimit	PositiveLength
 	GrossAreaPlanned	Area
 PropertySet:	Pset_BuildingElementProxyCommon	I	IfcBuildingElementProxy
-	Reference	Identifier
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
 PropertySet:	Pset_CoveringCommon	I	IfcCovering
-	Reference	Identifier
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	AcousticRating	Label
 	FlammabilityRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 	Fragility	Label
-	Finish	Text
+	Finish	Text	PropertyCalculator.CoveringFinishCalculator
 	TotalThickness	PositiveLength	BuiltInParameter.CEILING_THICKNESS
 PropertySet:	Pset_CurtainWallCommon	I	IfcCurtainWall
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 PropertySet:	Pset_DoorCommon	I	IfcDoor
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
@@ -92,12 +92,12 @@ PropertySet:	Pset_BuildingStoreyCommon	I	IfcBuildingStorey
 	GrossAreaPlanned	Real
 	NetAreaPlanned	Real
 PropertySet:	Pset_RailingCommon	I	IfcRailing
-	Reference	Identifier
-	IsExternal	Boolean
-	Height	PositiveLength
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
+	Height	PositiveLength	PropertyCalculator.RailingHeightCalculator
 PropertySet:	Pset_RampCommon	I	IfcRamp
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	HandicapAccessible	Boolean
 	FireExit	Boolean
@@ -105,54 +105,54 @@ PropertySet:	Pset_RampCommon	I	IfcRamp
 	RequiredHeadroom	Real
 	RequiredSlope	Real
 PropertySet:	Pset_RampFlightCommon	I	IfcRampFlight
-	Reference	Identifier
-	Slope	PlaneAngle
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	Slope	PlaneAngle	PropertyCalculator.RampFlightSlopeCalculator
 PropertySet:	Pset_RoofCommon	I	IfcRoof
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	TotalArea	Area	BuiltInParameter.HOST_AREA_COMPUTED
-	ProjectedArea	Area
+	ProjectedArea	Area	PropertyCalculator.RoofProjectedAreaCalculator
 PropertySet:	Pset_SlabCommon	I	IfcSlab
-	Reference	Identifier
-	IsExternal	Boolean
-	LoadBearing	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
+	LoadBearing	Boolean	PropertyCalculator.SlabLoadBearingCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 	Compartmentation	Boolean
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
-	PitchAngle	PlaneAngle
+	PitchAngle	PlaneAngle	PropertyCalculator.SlopeCalculator
 PropertySet:	Pset_StairCommon	I	IfcStair
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
-	NumberOfRiser	Count
-	NumberOfTreads	Count
-	RiserHeight	PositiveLength
-	TreadLength	PositiveLength
+	NumberOfRiser	Count	PropertyCalculator.StairRiserTreadsCalculator
+	NumberOfTreads	Count	PropertyCalculator.StairRiserTreadsCalculator
+	RiserHeight	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	TreadLength	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
 	HandicapAccessible	Boolean
 	FireExit	Boolean
 	HasNonSkidSurface	Boolean
 	RequiredHeadroom	Boolean
 PropertySet:	Pset_StairFlightCommon	I	IfcStairFlight
-	Reference	Identifier
-	NumberOfRiser	Count
-	NumberOfTreads	Count
-	RiserHeight	PositiveLength
-	TreadLength	PositiveLength
-	TreadLengthAtOffset	PositiveLength
-	TreadLengthAtInnerSide	PositiveLength
-	NosingLength	Length
-	WalkingLineOffset	PositiveLength
-	WaistThickness	PositiveLength
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	NumberOfRiser	Count	PropertyCalculator.StairRiserTreadsCalculator
+	NumberOfTreads	Count	PropertyCalculator.StairRiserTreadsCalculator
+	RiserHeight	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	TreadLength	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	TreadLengthAtOffset	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	TreadLengthAtInnerSide	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	NosingLength	Length	PropertyCalculator.StairRiserTreadsCalculator
+	WalkingLineOffset	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
+	WaistThickness	PositiveLength	PropertyCalculator.StairRiserTreadsCalculator
 	Headroom	PositiveLength
 PropertySet:	Pset_WallCommon	I	IfcWall
-	Reference	Identifier
-	LoadBearing	Boolean
-	ExtendToStructure	Boolean
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	LoadBearing	Boolean	PropertyCalculator.LoadBearingCalculator
+	ExtendToStructure	Boolean	PropertyCalculator.ExtendToStructureCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
@@ -160,8 +160,8 @@ PropertySet:	Pset_WallCommon	I	IfcWall
 	Combustible	Boolean
 	Compartmentation	Boolean
 PropertySet:	Pset_WindowCommon	I	IfcWindow
-	Reference	Identifier
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
@@ -170,7 +170,7 @@ PropertySet:	Pset_WindowCommon	I	IfcWindow
 	GlazingAreaFraction	Real
 	Infiltration	VolumetricFlowRate
 PropertySet:	Pset_SpaceCommon	I	IfcSpace
-	Reference	Identifier
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
 	PubliclyAccessible	Boolean
 	HandicapAccessible	Boolean
 	GrossPlannedArea	Area
@@ -247,31 +247,31 @@ PropertySet:	Space Zones	I	IfcSpace
 	Privacy Zone	Label
 	Zone GrossAreaPlanned	Label
 	Zone NetAreaPlanned	Label
-	Project Specific Zone	Label
+	Project Specific Zone	Label	PropertyCalculator.SpecificZoneCalculator
 PropertySet:	Pset_BeamCommon	I	IfcBeam
-	Reference	Identifier
-	LoadBearing	Boolean
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	LoadBearing	Boolean	PropertyCalculator.BeamLoadBearingCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
-	Span	PositiveLength
-	Slope	PlaneAngle
+	Span	PositiveLength	PropertyCalculator.BeamMemberSpanCalculator
+	Slope	PlaneAngle	PropertyCalculator.SlopeCalculator
 PropertySet:	Pset_ColumnCommon	I	IfcColumn
-	Reference	Identifier
-	LoadBearing	Boolean
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	LoadBearing	Boolean	PropertyCalculator.ColumnLoadBearingCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
-	Slope	PlaneAngle
+	Slope	PlaneAngle	PropertyCalculator.SlopeCalculator
 PropertySet:	Pset_MemberCommon	I	IfcMember
-	Reference	Identifier
-	LoadBearing	Boolean
-	IsExternal	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	LoadBearing	Boolean	PropertyCalculator.BeamLoadBearingCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	Span	PositiveLength	BuiltInParameter.INSTANCE_LENGTH_PARAM
-	Slope	PlaneAngle
+	Slope	PlaneAngle	PropertyCalculator.SlopeCalculator
 PropertySet:	Pset_PlateCommon	I	IfcPlate
-	Reference	Identifier
-	IsExternal	Boolean
-	LoadBearing	Boolean
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
+	IsExternal	Boolean	PropertyCalculator.ExternalCalculator
+	LoadBearing	Boolean	PropertyCalculator.BeamLoadBearingCalculator
 	AcousticRating	Label
 	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
@@ -315,11 +315,11 @@ PropertySet:	Pset_LightFixtureTypeCommon	I	IfcLightFixtureType
 	MaintenanceFactor	Real
 	ManufacturersSpecificInformation	Text
 PropertySet:	Pset_ProvisionForVoid	I	IfcBuildingElementProxy
-	Shape	Label
-	Width	PositiveLength
-	Height	PositiveLength
-	Diameter	PositiveLength
-	Depth	PositiveLength
+	Shape	Label	PropertyCalculator.ProvisionForVoidShapeCalculator
+	Width	PositiveLength	PropertyCalculator.ProvisionForVoidWidthCalculator
+	Height	PositiveLength	PropertyCalculator.ProvisionForVoidHeightCalculator
+	Diameter	PositiveLength	PropertyCalculator.ProvisionForVoidDiameterCalculator
+	Depth	PositiveLength	PropertyCalculator.ProvisionForVoidDepthCalculator
 	System	Label
 PropertySet:	Pset_SanitaryTerminalTypeBath	I	IfcSanitaryTerminalType
 	BathType	Label
@@ -376,7 +376,7 @@ PropertySet:	Pset_SwitchingDeviceTypeToggleSwitch	I	IfcSwitchingDeviceType
 	IsIlluminated	Boolean
 	Legend	Label
 PropertySet:	Pset_ZoneCommon	I	IfcZone
-	Reference	Identifier
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
 	Category	Label
 	GrossAreaPlanned	Area
 	NetAreaPlanned	Area
@@ -435,17 +435,17 @@ PropertySet:	Pset_ReinforcingBarBendingsDIN135610Common	I	IfcReinforcingBar
 	DIN135610ShapeParameter_e	PositiveLength
 	DIN135610ShapeParameter_z	PositiveLength
 PropertySet:	Pset_ReinforcingBarBendingsISOCD3766Common	I	IfcReinforcingBar
-	ISOCD3766ShapeCode	Label
-	ISOCD3766ShapeParameter_a	PositiveLength
-	ISOCD3766ShapeParameter_b	PositiveLength
-	ISOCD3766ShapeParameter_c	PositiveLength
-	ISOCD3766ShapeParameter_d	PositiveLength
-	ISOCD3766ShapeParameter_e	PositiveLength
-	ISOCD3766ShapeParameter_R	PositiveLength
-	ISOCD3766BendingStartHook	PlaneAngle
-	ISOCD3766BendingEndHook	PlaneAngle
+	ISOCD3766ShapeCode	Label	PropertyCalculator.ISOCD3766ShapeCodeCalculator
+	ISOCD3766ShapeParameter_a	PositiveLength	PropertyCalculator.ISOCD3766ShapeParameterACalculator
+	ISOCD3766ShapeParameter_b	PositiveLength	PropertyCalculator.ISOCD3766ShapeParameterBCalculator
+	ISOCD3766ShapeParameter_c	PositiveLength	PropertyCalculator.ISOCD3766ShapeParameterCCalculator
+	ISOCD3766ShapeParameter_d	PositiveLength	PropertyCalculator.ISOCD3766ShapeParameterDCalculator
+	ISOCD3766ShapeParameter_e	PositiveLength	PropertyCalculator.ISOCD3766ShapeParameterECalculator
+	ISOCD3766ShapeParameter_R	PositiveLength	PropertyCalculator.ISOCD3766BendingRadiusCalculator
+	ISOCD3766BendingStartHook	PlaneAngle	PropertyCalculator.ISOCD3766BendingStartHookCalculator
+	ISOCD3766BendingEndHook	PlaneAngle	PropertyCalculator.ISOCD3766BendingEndHookCalculator
 PropertySet:	Pset_DistributionFlowElementCommon	I	IfcDistributionFlowElement
-	Reference	Identifier
+	Reference	Identifier	PropertyCalculator.ReferenceCalculator
 PropertySet:	Pset_ElectricalCircuit	I	IfcElectricalCircuit
 	Diversity	PositiveRatio
 	NumberOfPhases	Integer
@@ -462,3 +462,4 @@ PropertySet:	Pset_ElementShading	I	IfcBuildingElementProxy
 	Reflectance	PositiveRatio
 	Roughness	PositiveLength
 	Color	Label
+
