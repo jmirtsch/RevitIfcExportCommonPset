@@ -1,5 +1,5 @@
 #
-# IFC2x3 Common PropertySet Definition File
+# IFC4 Common PropertySet Definition File
 #
 # Format:
 # PropertySet:	<Pset Name>	I[nstance]/T[ype]	<element list separated by ','>
@@ -17,8 +17,9 @@
 PropertySet:	Pset_BuildingCommon	I	IfcBuilding
 	BuildingID	Identifier
 	IsPermanentID	Boolean
-	MainFireUse	Label
-	AncillaryFireUse	Label
+	Reference	Identifier
+	ConstructionMethod	Label
+	FireProtectionClass	Label
 	SprinklerProtection	Boolean
 	SprinklerProtectionAutomatic	Boolean
 	OccupancyType	Label
@@ -29,9 +30,17 @@ PropertySet:	Pset_BuildingCommon	I	IfcBuilding
 PropertySet:	Pset_SiteCommon	I	IfcSite
 	BuildableArea	Area
 	BuildingHeightLimit	PositiveLength
-	GrossAreaPlanned	Area
+	Reference	Identifier
+	SiteCoverageRatio	PositiveRatio
+	FloorAreaRatio	PositiveRatio
+	TotalArea	Area
 PropertySet:	Pset_BuildingElementProxyCommon	I	IfcBuildingElementProxy
 	Reference	Identifier
+	Status	Label
+	IsExternal	Boolean
+	ThermalTransmittance	ThermalTransmittance
+	LoadBearing	Boolean
+	FireRating	Label
 PropertySet:	Pset_CoveringCommon	I	IfcCovering
 	Reference	Identifier
 	FireRating	Label
@@ -39,9 +48,11 @@ PropertySet:	Pset_CoveringCommon	I	IfcCovering
 	FlammabilityRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
-	Fragility	Label
+	FragilityRating	Label
 	Finish	Text
-	TotalThickness	PositiveLength
+	Status	Label
+	IsExternal	Boolean
+	ThermalTransmittance	ThermalTransmittance
 PropertySet:	Pset_CurtainWallCommon	I	IfcCurtainWall
 	Reference	Identifier
 	IsExternal	Boolean
@@ -50,6 +61,7 @@ PropertySet:	Pset_CurtainWallCommon	I	IfcCurtainWall
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
+	Status	Label
 PropertySet:	Pset_DoorCommon	I	IfcDoor
 	Reference	Identifier
 	IsExternal	Boolean
@@ -63,6 +75,10 @@ PropertySet:	Pset_DoorCommon	I	IfcDoor
 	SmokeStop	Boolean
 	GlazingAreaFraction	Real
 	Infiltration	VolumetricFlowRate
+	Status	Label
+	DurabilityRating	Label
+	HygrothermalRating	Label
+	HasDrive	Boolean
 PropertySet:	Pset_DoorWindowGlazingType	I	IfcDoor,IfcWindow
 	GlassLayers	Count
 	GlassThickness1	PositiveLength
@@ -74,13 +90,17 @@ PropertySet:	Pset_DoorWindowGlazingType	I	IfcDoor,IfcWindow
 	IsLaminated	Boolean
 	IsCoated	Boolean
 	IsWired	Boolean
-	Translucency	PositiveRatio
-	Reflectivity	PositiveRatio
-	BeamRadiationTransmittance	PositiveRatio
-	SolarHeatGainTransmittance	PositiveRatio
+	VisibleLightReflectance	NormalisedRatio
+	VisibleLightTransmittance	NormalisedRatio
+	SolarAbsorption	NormalisedRatio
+	SolarReflectance	NormalisedRatio
+	SolarTransmittance	NormalisedRatio
+	SolarHeatGainTransmittance	NormalisedRatio
+	ShadingCoefficient	NormalisedRatio
 	ThermalTransmittanceSummer	ThermalTransmittance
 	ThermalTransmittanceWinter	ThermalTransmittance
 PropertySet:	Pset_DoorWindowShadingType	I	IfcDoor,IfcWindow
+	ShadingCoefficient	NormalisedRatio
 	ExternalShadingCoefficient	PositiveRatio
 	InternalShadingCoefficient	PositiveRatio
 	InsetShadingCoefficient	PositiveRatio
@@ -95,6 +115,7 @@ PropertySet:	Pset_RailingCommon	I	IfcRailing
 	Reference	Identifier
 	IsExternal	Boolean
 	Height	PositiveLength
+	Status	Label
 PropertySet:	Pset_RampCommon	I	IfcRamp
 	Reference	Identifier
 	IsExternal	Boolean
@@ -104,15 +125,22 @@ PropertySet:	Pset_RampCommon	I	IfcRamp
 	HasNonSkidSurface	Boolean
 	RequiredHeadroom	Real
 	RequiredSlope	Real
+	Status	Label
 PropertySet:	Pset_RampFlightCommon	I	IfcRampFlight
 	Reference	Identifier
 	Slope	PlaneAngle
+	Status	Label
+	ClearWidth	PositiveLength
+	CounterSlope	PlaneAngle
 PropertySet:	Pset_RoofCommon	I	IfcRoof
 	Reference	Identifier
 	IsExternal	Boolean
 	FireRating	Label
 	TotalArea	Area
 	ProjectedArea	Area
+	Status	Label
+	AcousticRating	Label
+	ThermalTransmittance	ThermalTransmittance
 PropertySet:	Pset_SlabCommon	I	IfcSlab
 	Reference	Identifier
 	IsExternal	Boolean
@@ -124,6 +152,7 @@ PropertySet:	Pset_SlabCommon	I	IfcSlab
 	Compartmentation	Boolean
 	ThermalTransmittance	ThermalTransmittance
 	PitchAngle	PlaneAngle
+	Status	Label
 PropertySet:	Pset_StairCommon	I	IfcStair
 	Reference	Identifier
 	IsExternal	Boolean
@@ -136,6 +165,12 @@ PropertySet:	Pset_StairCommon	I	IfcStair
 	FireExit	Boolean
 	HasNonSkidSurface	Boolean
 	RequiredHeadroom	Boolean
+	Status	Label
+	NosingLength	Length
+	WalkingLineOffset	PositiveLength
+	TreadLengthAtOffset	PositiveLength
+	TreadLengthAtInnerSide	PositiveLength
+	WaistThickness	PositiveLength
 PropertySet:	Pset_StairFlightCommon	I	IfcStairFlight
 	Reference	Identifier
 	NumberOfRiser	Count
@@ -148,6 +183,7 @@ PropertySet:	Pset_StairFlightCommon	I	IfcStairFlight
 	WalkingLineOffset	PositiveLength
 	WaistThickness	PositiveLength
 	Headroom	PositiveLength
+	Status	Label
 PropertySet:	Pset_WallCommon	I	IfcWall
 	Reference	Identifier
 	LoadBearing	Boolean
@@ -159,6 +195,7 @@ PropertySet:	Pset_WallCommon	I	IfcWall
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 	Compartmentation	Boolean
+	Status	Label
 PropertySet:	Pset_WindowCommon	I	IfcWindow
 	Reference	Identifier
 	IsExternal	Boolean
@@ -169,23 +206,19 @@ PropertySet:	Pset_WindowCommon	I	IfcWindow
 	SmokeStop	Boolean
 	GlazingAreaFraction	Real
 	Infiltration	VolumetricFlowRate
+	Status	Label
+	HasSillExternal	Boolean
+	HasSillInternal	Boolean
+	HasDrive	Boolean
+	FireExit	Boolean
 PropertySet:	Pset_SpaceCommon	I	IfcSpace
 	Reference	Identifier
 	PubliclyAccessible	Boolean
 	HandicapAccessible	Boolean
 	GrossPlannedArea	Area
-	Category	Label
-	CeilingCovering	Label
-	WallCovering	Label
-	FloorCovering	Label
-	SkirtingBoard	Label
 	NetPlannedArea	Area
-	ConcealedFlooring	Boolean
-	ConcealedCeiling	Boolean
+	IsExternal	Boolean
 PropertySet:	Pset_SpaceFireSafetyRequirements	I	IfcSpace
-	MainFireUse	Label
-	AncillaryFireUse	Label
-	FireHazardFactor	Label
 	FireRiskFactor	Label
 	FlammableStorage	Boolean
 	FireExit	Boolean
@@ -220,10 +253,13 @@ PropertySet:	Pset_SpaceThermalRequirements	I	IfcSpace
 	MechanicalVentilationRate	Count
 	AirConditioning	Boolean
 	AirConditioningCentral	Boolean
+	SpaceTemperature	ThermodynamicTemperature
 	SpaceTemperatureSummerMax	ThermodynamicTemperature
 	SpaceTemperatureSummerMin	ThermodynamicTemperature
 	SpaceTemperatureWinterMax	ThermodynamicTemperature
 	SpaceTemperatureWinterMin	ThermodynamicTemperature
+	SpaceHumidityMax	ThermodynamicTemperature
+	SpaceHumidityMin	ThermodynamicTemperature
 PropertySet:	GSA Space Categories	I	IfcSpace
 	GSA STAR Space Type	Label
 	GSA STAR Space Category	Label
@@ -255,12 +291,18 @@ PropertySet:	Pset_BeamCommon	I	IfcBeam
 	FireRating	Label
 	Span	PositiveLength
 	Slope	PlaneAngle
+	Status	Label
+	Roll	PlaneAngle
+	ThermalTransmittance	ThermalTransmittance
 PropertySet:	Pset_ColumnCommon	I	IfcColumn
 	Reference	Identifier
 	LoadBearing	Boolean
 	IsExternal	Boolean
 	FireRating	Label
 	Slope	PlaneAngle
+	Status	Label
+	Roll	PlaneAngle
+	ThermalTransmittance	ThermalTransmittance
 PropertySet:	Pset_MemberCommon	I	IfcMember
 	Reference	Identifier
 	LoadBearing	Boolean
@@ -268,6 +310,9 @@ PropertySet:	Pset_MemberCommon	I	IfcMember
 	FireRating	Label
 	Span	PositiveLength
 	Slope	PlaneAngle
+	Status	Label
+	Roll	PlaneAngle
+	ThermalTransmittance	ThermalTransmittance
 PropertySet:	Pset_PlateCommon	I	IfcPlate
 	Reference	Identifier
 	IsExternal	Boolean
@@ -275,6 +320,7 @@ PropertySet:	Pset_PlateCommon	I	IfcPlate
 	AcousticRating	Label
 	FireRating	Label
 	ThermalTransmittance	ThermalTransmittance
+	Status	Label
 PropertySet:	Pset_AirTerminalTypeCommon	I	IfcAirTerminalType
 	Shape	Label
 	FlowPattern	Label
@@ -295,26 +341,35 @@ PropertySet:	Pset_AirTerminalTypeCommon	I	IfcAirTerminalType
 	HasThermalInsulation	Boolean
 	NeckArea	Area
 	EffectiveArea	Area
+	Reference	Identifier
+	Status	Label
+	FaceType	Label
+	SlotWidth	Length
+	SlotLength	Length
+	NumberOfSlots	Integer
+	AirFlowrateVersusFlowControlElement	PositiveRatio
 PropertySet:	Pset_ElectricalDeviceCommon	I	IfcDistributionElement
 	NominalFrequencyRange	Frequency
 	NumberOfPoles	Integer
 	HasProtectiveEarth	Boolean
 	IP_Code	Label
 	InsulationStandardClass	Label
-	NominalCurrent	ElectricalCurrent
-	UsageCurrent	ElectricalCurrent
-	NominalVoltage	ElectricalVoltage
-	ElectricalDeviceNominalPower	Power
-	PhaseAngle	PositivePlaneAngle
-	PhaseReference	Identifier
+	RatedCurrent	ElectricalCurrent
+	RatedVoltage	ElectricalVoltage
+	PowerFactor	Ratio
+	ConductorFunction	Label
 PropertySet:	Pset_LightFixtureTypeCommon	I	IfcLightFixtureType
 	NumberOfSources	Integer
 	TotalWattage	Power
 	LightFixtureMountingType	Label
 	LightFixturePlacingType	Label
 	MaintenanceFactor	Real
-	ManufacturersSpecificInformation	Text
-PropertySet:	Pset_ProvisionForVoid	I	IfcBuildingElementProxy
+	Reference	Identifier
+	Status	Label
+	MaximumPlenumSensibleLoad	Power
+	MaximumSpaceSensibleLoad	Power
+	SensibleLoadToRadiant	PositiveRatio
+PropertySet:	Pset_BuildingElementProxyProvisionForVoid	I	IfcBuildingElementProxy
 	Shape	Label
 	Width	PositiveLength
 	Height	PositiveLength
@@ -352,7 +407,7 @@ PropertySet:	Pset_SanitaryTerminalTypeToiletPan	I	IfcSanitaryTerminalType
 	ToiletType	Label
 	ToiletPanType	Label
 	PanMounting	Label
-	PanColor	Text
+	Color	Label
 	SpilloverLevel	PositiveLength
 	NominalLength	PositiveLength
 	NominalWidth	PositiveLength
@@ -369,12 +424,14 @@ PropertySet:	Pset_SwitchingDeviceTypeCommon	I	IfcSwitchingDeviceType
 	NumberOfGangs	Integer
 	SwitchFunction	Label
 	HasLock	Boolean
+	Reference	Identifier
+	Status	Label
+	IsIlluminated	Boolean
+	Legend	Label
 PropertySet:	Pset_SwitchingDeviceTypeToggleSwitch	I	IfcSwitchingDeviceType
 	ToggleSwitchType	Label
 	SwitchUsage	Label
 	SwitchActivation	Label
-	IsIlluminated	Boolean
-	Legend	Label
 PropertySet:	Pset_ZoneCommon	I	IfcZone
 	Reference	Identifier
 	Category	Label
@@ -382,83 +439,26 @@ PropertySet:	Pset_ZoneCommon	I	IfcZone
 	NetAreaPlanned	Area
 	PubliclyAccessible	Boolean
 	HandicapAccessible	Boolean
-	OccupancyType	Label
-	OccupancyNumber	Count
-	NaturalVentilation	Boolean
-	NaturalVentilationRate	Count
-	MechanicalVentilationRate	Count
+	IsExternal	Boolean
 PropertySet:	Pset_ManufacturerTypeInformation	I	IfcElement
 	ArticleNumber	Identifier
 	ModelReference	Label
 	ModelLabel	Label
 	Manufacturer	Label
 	ProductionYear	Label
-PropertySet:	Pset_BuildingWaterStorage	I	IfcBuilding
-	OneDayPotableWater	Real
-	OneDayProcessOrProductionWater	Real
-	OneDayCoolingTowerMakeupWater	Real
-PropertySet:	Pset_ReinforcingBarBendingsBECCommon	I	IfcReinforcingBar
-	BECBarShapeCode	Label
-	BECShapeParameter_a	PositiveLength
-	BECShapeParameter_b	PositiveLength
-	BECShapeParameter_c	PositiveLength
-	BECShapeParameter_d	PositiveLength
-	BECShapeParameter_e	PositiveLength
-	BECShapeParameter_f	PositiveLength
-	BECShapeParameter_g	PositiveLength
-	BECShapeParameter_h	PositiveLength
-	BECShapeParameter_i	PositiveLength
-	BECShapeParameter_j	PositiveLength
-	BECShapeParameter_k	PositiveLength
-	BECShapeParameter_l	PositiveLength
-	BECBendingParameter_u	PlaneAngle
-	BECBendingParameter_v	PlaneAngle
-	BECBendingParameter_ul	PlaneAngle
-	BECBendingParameter_vl	PlaneAngle
-	BECShapeAid_x	PositiveLength
-	BECShapeAid_y	PositiveLength
-	BECRollerDiameter	PositiveLength
-PropertySet:	Pset_ReinforcingBarBendingsBS8666Common	I	IfcReinforcingBar
-	BS8666ShapeCode	Label
-	BS8666ShapeParameter_A	PositiveLength
-	BS8666ShapeParameter_B	PositiveLength
-	BS8666ShapeParameter_C	PositiveLength
-	BS8666ShapeParameter_D	PositiveLength
-	BS8666ShapeParameter_E	PositiveLength
-	BS8666ShapeParameter_R	PositiveLength
-PropertySet:	Pset_ReinforcingBarBendingsDIN135610Common	I	IfcReinforcingBar
-	DIN135610ShapeCode	Label
-	DIN135610ShapeParameter_a	PositiveLength
-	DIN135610ShapeParameter_b	PositiveLength
-	DIN135610ShapeParameter_c	PositiveLength
-	DIN135610ShapeParameter_d	PositiveLength
-	DIN135610ShapeParameter_e	PositiveLength
-	DIN135610ShapeParameter_z	PositiveLength
-PropertySet:	Pset_ReinforcingBarBendingsISOCD3766Common	I	IfcReinforcingBar
-	ISOCD3766ShapeCode	Label
-	ISOCD3766ShapeParameter_a	PositiveLength
-	ISOCD3766ShapeParameter_b	PositiveLength
-	ISOCD3766ShapeParameter_c	PositiveLength
-	ISOCD3766ShapeParameter_d	PositiveLength
-	ISOCD3766ShapeParameter_e	PositiveLength
-	ISOCD3766ShapeParameter_R	PositiveLength
-	ISOCD3766BendingStartHook	PlaneAngle
-	ISOCD3766BendingEndHook	PlaneAngle
-PropertySet:	Pset_DistributionFlowElementCommon	I	IfcDistributionFlowElement
-	Reference	Identifier
-PropertySet:	Pset_ElectricalCircuit	I	IfcElectricalCircuit
-	Diversity	PositiveRatio
-	NumberOfPhases	Integer
-PropertySet:	Pset_FlowTerminalAirTerminal	I	IfcFlowTerminal
-	AirflowType	Label
-	Location	Label
-PropertySet:	Pset_ElementShading	I	IfcBuildingElementProxy
-	ShadingDeviceType	Label
-	Azimuth	PlaneAngle
-	Inclination	PlaneAngle
-	TiltRange	PlaneAngle
-	AverageSolarTransmittance	PositiveRatio
-	AverageVisibleTransmittance	PositiveRatio
-	Reflectance	PositiveRatio
-	Roughness	PositiveLength
-	Color	Label
+	GlobalTradeItemNumber	Identifier
+	AssemblyPlace	Label
+PropertySet:	Pset_SpaceCoveringRequirements	I	IfcSpace
+	CeilingCovering	Label
+	CeilingCoveringThickness	Real
+	WallCovering	Label
+	WallCoveringThickness	Real
+	FloorCovering	Label
+	FloorCoveringThickness	Real
+	SkirtingBoard	Label
+	SkirtingBoardHeight	Real
+	Molding	Label
+	MoldingHeight	Real
+	ConcealedFlooring	Boolean
+	ConcealedCeiling	Boolean
+
