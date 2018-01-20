@@ -34,27 +34,27 @@ PropertySet:	Pset_BuildingElementProxyCommon	I	IfcBuildingElementProxy
 	Reference	Identifier
 PropertySet:	Pset_CoveringCommon	I	IfcCovering
 	Reference	Identifier
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	AcousticRating	Label
 	FlammabilityRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 	Fragility	Label
 	Finish	Text
-	TotalThickness	PositiveLength
+	TotalThickness	PositiveLength	BuiltInParameter.CEILING_THICKNESS
 PropertySet:	Pset_CurtainWallCommon	I	IfcCurtainWall
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
-	ThermalTransmittance	ThermalTransmittance
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 PropertySet:	Pset_DoorCommon	I	IfcDoor
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
-	ThermalTransmittance	ThermalTransmittance
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
 	SecurityRating	Label
 	HandicapAccessible	Boolean
@@ -98,7 +98,7 @@ PropertySet:	Pset_RailingCommon	I	IfcRailing
 PropertySet:	Pset_RampCommon	I	IfcRamp
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	HandicapAccessible	Boolean
 	FireExit	Boolean
 	HasNonSkidSurface	Boolean
@@ -110,24 +110,24 @@ PropertySet:	Pset_RampFlightCommon	I	IfcRampFlight
 PropertySet:	Pset_RoofCommon	I	IfcRoof
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
-	TotalArea	Area
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	TotalArea	Area	BuiltInParameter.HOST_AREA_COMPUTED
 	ProjectedArea	Area
 PropertySet:	Pset_SlabCommon	I	IfcSlab
 	Reference	Identifier
 	IsExternal	Boolean
 	LoadBearing	Boolean
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
 	Compartmentation	Boolean
-	ThermalTransmittance	ThermalTransmittance
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	PitchAngle	PlaneAngle
 PropertySet:	Pset_StairCommon	I	IfcStair
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	NumberOfRiser	Count
 	NumberOfTreads	Count
 	RiserHeight	PositiveLength
@@ -153,8 +153,8 @@ PropertySet:	Pset_WallCommon	I	IfcWall
 	LoadBearing	Boolean
 	ExtendToStructure	Boolean
 	IsExternal	Boolean
-	FireRating	Label
-	ThermalTransmittance	ThermalTransmittance
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
 	SurfaceSpreadOfFlame	Label
 	Combustible	Boolean
@@ -162,8 +162,8 @@ PropertySet:	Pset_WallCommon	I	IfcWall
 PropertySet:	Pset_WindowCommon	I	IfcWindow
 	Reference	Identifier
 	IsExternal	Boolean
-	FireRating	Label
-	ThermalTransmittance	ThermalTransmittance
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 	AcousticRating	Label
 	SecurityRating	Label
 	SmokeStop	Boolean
@@ -175,9 +175,9 @@ PropertySet:	Pset_SpaceCommon	I	IfcSpace
 	HandicapAccessible	Boolean
 	GrossPlannedArea	Area
 	Category	Label
-	CeilingCovering	Label
-	WallCovering	Label
-	FloorCovering	Label
+	CeilingCovering	Label	BuiltInParameter.ROOM_FINISH_CEILING
+	WallCovering	Label	BuiltInParameter.ROOM_FINISH_WALL
+	FloorCovering	Label	BuiltInParameter.ROOM_FINISH_FLOOR
 	SkirtingBoard	Label
 	NetPlannedArea	Area
 	ConcealedFlooring	Boolean
@@ -252,29 +252,29 @@ PropertySet:	Pset_BeamCommon	I	IfcBeam
 	Reference	Identifier
 	LoadBearing	Boolean
 	IsExternal	Boolean
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	Span	PositiveLength
 	Slope	PlaneAngle
 PropertySet:	Pset_ColumnCommon	I	IfcColumn
 	Reference	Identifier
 	LoadBearing	Boolean
 	IsExternal	Boolean
-	FireRating	Label
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
 	Slope	PlaneAngle
 PropertySet:	Pset_MemberCommon	I	IfcMember
 	Reference	Identifier
 	LoadBearing	Boolean
 	IsExternal	Boolean
-	FireRating	Label
-	Span	PositiveLength
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	Span	PositiveLength	BuiltInParameter.INSTANCE_LENGTH_PARAM
 	Slope	PlaneAngle
 PropertySet:	Pset_PlateCommon	I	IfcPlate
 	Reference	Identifier
 	IsExternal	Boolean
 	LoadBearing	Boolean
 	AcousticRating	Label
-	FireRating	Label
-	ThermalTransmittance	ThermalTransmittance
+	FireRating	Label	BuiltInParameter.DOOR_FIRE_RATING
+	ThermalTransmittance	ThermalTransmittance	BuiltInParameter.ANALYTICAL_HEAT_TRANSFER_COEFFICIENT
 PropertySet:	Pset_AirTerminalTypeCommon	I	IfcAirTerminalType
 	Shape	Label
 	FlowPattern	Label
@@ -309,7 +309,7 @@ PropertySet:	Pset_ElectricalDeviceCommon	I	IfcDistributionElement
 	PhaseReference	Identifier
 PropertySet:	Pset_LightFixtureTypeCommon	I	IfcLightFixtureType
 	NumberOfSources	Integer
-	TotalWattage	Power
+	TotalWattage	Power	BuiltInParameter.LIGHTING_FIXTURE_WATTAGE
 	LightFixtureMountingType	Label
 	LightFixturePlacingType	Label
 	MaintenanceFactor	Real
@@ -391,7 +391,7 @@ PropertySet:	Pset_ManufacturerTypeInformation	I	IfcElement
 	ArticleNumber	Identifier
 	ModelReference	Label
 	ModelLabel	Label
-	Manufacturer	Label
+	Manufacturer	Label	BuiltInParameter.ALL_MODEL_MANUFACTURER
 	ProductionYear	Label
 PropertySet:	Pset_BuildingWaterStorage	I	IfcBuilding
 	OneDayPotableWater	Real
